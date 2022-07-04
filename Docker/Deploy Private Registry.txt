@@ -1,0 +1,14 @@
+1. First, run the container with the `registry` image to be able to pull and push to the cloud private server
+	docker run -d -p 5000:5000 --name registry registry:2
+
+2. Rename the <my-image> to localhost:5000/<my-image>
+	docker image tag <my-image> localhost:5000/<my-image>
+
+3. Push <my-image> to localhost at port 5000
+	docker push localhost:5000/<my-image>
+
+4a). Pull <my-image> from localhost at port 5000 if you're on the same host
+	docker pull localhost:5000/<my-image>
+
+4b). Pull <my-image> from the IP address (e.g., 192.168.56.100) if you're on a different host
+	docker pull 192.168.56.100:5000/<my-image>
