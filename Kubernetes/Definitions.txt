@@ -1,0 +1,8 @@
+Container Orchestartion:
+	the platform to orchetrate the continters' connectivity, atuomatically scale up or down based on loads
+
+
+Orchestration Tools:
+	Dokcker Swarm: by Docker
+	Kubernetes: by Google
+	MESOS: by Apache

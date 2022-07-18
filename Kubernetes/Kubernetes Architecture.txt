@@ -1,0 +1,38 @@
+--------------------------------- Architecture ---------------------------------
+
+Node (Minion):
+	+ A node is a machine (physical or virtual) on which Kubernetes is installed
+	+ A node is a worker machine, where the containers will be launched by
+		Kubernetes
+	+ If the node on which your application is running fails, then our
+		application goes down. So we need to have more than one node
+
+Cluster:
+	+ A cluster is a set of nodes grouped together
+	+ This way, even if one node fails, the application is still accessible from
+		the other nodds
+	+ Having multiple nodes helps in sharing loads
+
+Master Node:
+	+ A master node is the node with Kubernetes installed on it (like other
+		nodes)
+	+ Watches all other nodes in the cluster
+	+ Responsible for the actual orchestration of containers on the worker nodes
+	  (e.g., manage the cluster, store information about members of the cluster,
+		 monitor the nodes, move the workload of the failed node)
+
+Components:
+	+ API Server: acts as the front-end for Kubernetes
+	+ etcd (keystore): a distributed, reliable key-value store to store all data
+		used to manage the clusters
+	+ Scheduler: responsible for distributing work or containers across multiple
+		nodes. It looks for newly created containers and assigns them to nodes
+	+ Controllers: the brain behind orchestration, responsible for noticing and
+		responding when nodes, containers, or endpoints go down --> make
+		decision to bring up new containers in such cases
+	+ Container Runtime: the underlying software that is used to run containers
+		(e.g., Docker)
+	+ Kubelet: the agent that runs on each node in the cluster, making sure that
+		the containers are running on the nodes as expected
+	
+	
