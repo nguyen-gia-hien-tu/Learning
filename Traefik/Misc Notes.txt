@@ -1,0 +1,2 @@
+Entrypoints are Ports
+A Service can be assigned to one or more Routers
