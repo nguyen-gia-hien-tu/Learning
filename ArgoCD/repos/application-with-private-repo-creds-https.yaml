@@ -5,12 +5,12 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: guestbook-private-repo-ssh
+    namespace: guestbook-private-repo-creds-https
     server: "https://kubernetes.default.svc"
   project: default
   source:
     path: guestbook
-    repoURL: "git@github.com:nguyen-gia-hien-tu/argocd-example-apps.git"
+    repoURL: "https://github.com/nguyen-gia-hien-tu/argocd-example-apps-private.git"
     targetRevision: master
   syncPolicy:
     syncOptions:
