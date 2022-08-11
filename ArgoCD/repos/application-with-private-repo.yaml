@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-private-repo-https
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook-private-repo-https
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    path: guestbook
+    repoURL: "https://github.com/nguyen-gia-hien-tu/argocd-example-apps.git"
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

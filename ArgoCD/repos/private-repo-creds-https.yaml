@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-repo-creds-https
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: "https://github.com/nguyen-gia-hien-tu/argocd-example-apps.git"
+  password: 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
+  username: nguyen-gia-hien-tu
