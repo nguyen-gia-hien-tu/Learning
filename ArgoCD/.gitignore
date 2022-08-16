@@ -1,2 +1,4 @@
-private*
+private-repo-creds-https.yaml
+private-repo-https.yaml
+private-repo-ssh.yaml
 argocd-example-apps-private/
