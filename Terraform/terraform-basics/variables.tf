@@ -1,0 +1,8 @@
+variable "name" {
+    type = string
+    default = "Hien"
+}
+
+variable "pet-name" {
+    type = string
+}
