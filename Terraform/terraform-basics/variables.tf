@@ -10,3 +10,7 @@ variable "pet-name" {
 variable "my-name" {
     type = string
 }
+
+variable "file_name" {
+    type = string
+}
