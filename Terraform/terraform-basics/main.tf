@@ -26,3 +26,17 @@ resource "local_file" "test-export-file-name" {
         "(e.g., export TF_VAR_file_name=\"test-export-file-name.txt\")"
     }"
 }
+
+# "combine-file" is the resource created by variables used from multiple
+# approaches
+resource "local_file" "combine-vars-file" {
+    filename = var.combine-filename
+    content = "My favorite pet is ${random_pet.my-pet.id}"
+}
+
+resource "random_pet" "my-pet" {
+    prefix = var.pet-prefix
+    separator = var.pet-separator
+    # To use "pet-length" variable, need to add "-var-file vars.tfvars"
+    length = var.pet-length
+}

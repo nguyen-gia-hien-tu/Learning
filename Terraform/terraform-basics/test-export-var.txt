@@ -1,2 +1,0 @@
-The file name should be created using `export TF_VAR_<variable_name>=<file_name>`
-(e.g., export TF_VAR_file_name="test-export-file-name.txt")
