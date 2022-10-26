@@ -18,16 +18,16 @@ resource "local_file" "prevent_destroy_pet" {
     }
 }
 
-resource "aws_instance" "webserver" {
-    ami = "ami-0edab43b6fa892279"
-    instance_type = "t2.micro"
-    tags = {
-        Name = "ProjectA-Webserver"
-    }
+# resource "aws_instance" "webserver" {
+#     ami = "ami-0edab43b6fa892279"
+#     instance_type = "t2.micro"
+#     tags = {
+#         Name = "ProjectA-Webserver"
+#     }
 
-    lifecycle {
-        ignore_changes = [
-          tags
-        ]
-    }
-}
+#     lifecycle {
+#         ignore_changes = [
+#           tags
+#         ]
+#     }
+# }
