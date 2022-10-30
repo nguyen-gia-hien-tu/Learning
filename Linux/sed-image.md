@@ -32,6 +32,7 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
       https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.4%20Overview%20of%20extended%20regular%20expression%20syntax,-The%20only%20difference
 
 2. The matching part
+
   i.  The `^` symbol means to match at the beginning of the line
       * Refer to this for understanding
         https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
@@ -43,7 +44,12 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
       * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
 
-  iii. The `[[:space:]]*` part matches any number of white spaces (including tabs
-      and new lines)
+  iii. The `[[:space:]]*` part matches any number of white spaces (including
+      tabs and new lines)
+
+  iv. The `.*` symbols matches any number of characters. `.` means matching one
+      occurrence of any character. `*` matches zero or more occurrences of the
+      character preceeding the `*` symbol. Thus `.*` means matching zero or more
+      occurrences of any character.
 
 
