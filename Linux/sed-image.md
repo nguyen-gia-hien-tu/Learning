@@ -1,8 +1,7 @@
 This documentation explain how to sed words after the word `image` with the
 desired word.
 
-## Refer to this link for details
-https://linuxhint.com/environment-variables-sed-command/
+## Refer to this link for details https://linuxhint.com/environment-variables-sed-command/
 
 ```zsh
 # Echo a typical configuration line for specifying the image in Kubernetes to test-file
