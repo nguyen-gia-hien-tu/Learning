@@ -29,24 +29,27 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
 2.  The matching part
 
-    2.1 The `^` symbol means to match at the beginning of the line * Refer to
+    2.1 The `^` symbol means to match at the beginning of the line
+      * Refer to
         this for understanding
-          https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
+        https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
 
     2.2 The `(` symbol after the `^` symbol and its matching `)` means to
-        remember the part inside of it. This is used for the `\1` later. Think
-        of it as the remembered part will be "pasted" in the `\1` when
-        substituting. <br>
-        Techincally, this will keep the `\t\timage: ` part (notice the white space after `:`) <br>
-        Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
+        remember the part inside of it. This is used for the `\1` later.
+      * Think of it as the remembered part will be "pasted" in the `\1` when
+        substituting.
+      * Techincally, this will keep the `\t\timage: ` part (notice the white
+        space after `:`)
+      * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
 
     2.3 The `[[:space:]]*` part matches any number of white spaces (including
         tabs and new lines)
 
-    2.4 The `.*` symbols matches any number of characters. `.` means matching one
-        occurrence of any character. `*` matches zero or more occurrences of the
-        character preceeding the `*` symbol. Thus `.*` means matching zero or more
-        occurrences of any character.
+    2.4 The `.*` symbols matches any number of characters
+      * `.` means matching one occurrence of any character
+      * `*` matches zero or more occurrences of the character preceeding the `*`
+        symbol
+      * Thus `.*` means matching zero or more occurrences of any character.
 
 3.  The replacing part
 
@@ -54,7 +57,7 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
     3.2 ${IMAGE_NAME//\//\/} changes all the occurrences of "/" in the value of
         the IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
-        Refer to this
+      * Refer to this
         https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
         for bash substitution for variables
 
