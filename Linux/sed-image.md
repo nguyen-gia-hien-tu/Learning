@@ -1,7 +1,7 @@
 This documentation explain how to sed words after the word `image` with the
 desired word.
 
-## Refer to this link for details https://linuxhint.com/environment-variables-sed-command/
+## Refer to this link for some details https://linuxhint.com/environment-variables-sed-command/
 
 ```zsh
 # Echo a typical configuration line for specifying the image in Kubernetes to test-file
@@ -31,12 +31,19 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
       Extended Regular Expression and Basic Regular Expression
       https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.4%20Overview%20of%20extended%20regular%20expression%20syntax,-The%20only%20difference
 
-2.  The `^` symbol means to match at the beginning of the line
-    * Refer to this for understanding
-      https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
+2. The matching part
+  i.  The `^` symbol means to match at the beginning of the line
+      * Refer to this for understanding
+        https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
 
-3.  The `(` symbol after the `^` symbol and its matching `)` means to remember
-    the part inside of it. This is used for the `\1` later. Think of it as the
-    remembered part will be "pasted" in the `\1` when substituting.
+  ii. The `(` symbol after the `^` symbol and its matching `)` means to remember
+      the part inside of it. This is used for the `\1` later. Think of it as the
+      remembered part will be "pasted" in the `\1` when substituting. <br>
+      Techincally, this will keep the `\t\timage: ` part (notice the white space after `:`)
+
+      * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
+
+  iii. The `[[:space:]]*` part matches any number of white spaces (including tabs
+      and new lines)
 
 
