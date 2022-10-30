@@ -37,9 +37,8 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
         remember the part inside of it. This is used for the `\1` later. Think
         of it as the remembered part will be "pasted" in the `\1` when
         substituting. <br>
-        Techincally, this will keep the `\t\timage: ` part (notice the white space after `:`)
-
-            * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
+        Techincally, this will keep the `\t\timage: ` part (notice the white space after `:`) <br>
+        Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
 
     2.3 The `[[:space:]]*` part matches any number of white spaces (including
         tabs and new lines)
@@ -55,10 +54,9 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
     3.2 ${IMAGE_NAME//\//\/} changes all the occurrences of "/" in the value of
         the IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
-
-            * Refer to this
-              https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
-              for bash substitution for variables
+        Refer to this
+        https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
+        for bash substitution for variables
 
 4.  `test-file` is the input file to the `sed` command. Since no output file is
     given. It prints out on the terminal instead.
