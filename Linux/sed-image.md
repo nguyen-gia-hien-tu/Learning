@@ -6,7 +6,7 @@ https://linuxhint.com/environment-variables-sed-command/
 
 ```zsh
 # Echo a typical configuration line for specifying the image in Kubernetes to test-file
-echo "\t\timage: 22064.dkr.ecr.io/hien-image:v1.0.0" >> test-file
+echo "\t\timage: 22064.dkr.ecr.io/hien-image:v1.0.0" > test-file
 
 # Set environment variable IMAGE_NAME to have value of 17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
@@ -20,5 +20,5 @@ export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 # for bash substitution for variables
 # ${IMAGE_NAME//\//\/} change all the occurrences of "/" in the value of the
 # IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
-sed -r "s/^([[:space:]]*image: ).*/\1 ${IMAGE_NAME//\//\/}/" test-file
+sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 ```
