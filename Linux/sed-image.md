@@ -64,9 +64,8 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
     3.2 ${IMAGE_NAME//\//\/} changes all the occurrences of "/" in the value of
         the IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
-      * Refer to this
+      * Refer to this for understanding of bash substitution for variables <br>
         https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
-        for bash substitution for variables
 
 4.  `test-file` is the input file to the `sed` command. Since no output file is
     given. It prints out on the terminal instead.
