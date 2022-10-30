@@ -30,9 +30,8 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 2.  The matching part
 
     2.1 The `^` symbol means to match at the beginning of the line
-      * Refer to
-        this for understanding
-        https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
+      * Refer to this for understanding
+        https://support.smartbear.com/alertsite/docs/appendixes/regular-expressions.html#:~:text=Match%20the%20beginning%20of%20the%20line
 
     2.2 The `(` symbol after the `^` symbol and its matching `)` means to
         remember the part inside of it. This is used for the `\1` later.
@@ -40,10 +39,16 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
         substituting.
       * Techincally, this will keep the `\t\timage: ` part (notice the white
         space after `:`)
-      * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
+      * Refer to this for understanding of `()` and `\1`
+        https://www.grymoire.com/Unix/Sed.html#uh-4 or
+        https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.7%20Back%2Dreferences%20and%20Subexpressions,-back%2Dreferences%20are
 
     2.3 The `[[:space:]]*` part matches any number of white spaces (including
         tabs and new lines)
+      * Refer to this for understanding of `[[:space:]]`
+        https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=Space%20characters%3A%20in%20the%20%E2%80%98C%E2%80%99%20locale%2C%20this%20is%20tab%2C%20newline%2C%20vertical%20tab%2C%20form%20feed%2C%20carriage%20return%2C%20and%20space
+      * Refer to this for understading of `*`
+        https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=character%20matches%20itself.-,*,-Matches%20a%20sequence
 
     2.4 The `.*` symbols matches any number of characters
       * `.` means matching one occurrence of any character
