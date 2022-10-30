@@ -24,13 +24,13 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
     instead of basic Regular Expression. This is to avoid having to escape some
     symbols to make it have special meaning
     * Refer to this part of the documentation for the difference between
-      Extended Regular Expression and Basic Regular Expression
+      Extended Regular Expression and Basic Regular Expression <br>
       https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.4%20Overview%20of%20extended%20regular%20expression%20syntax,-The%20only%20difference
 
 2.  The matching part
 
     2.1 The `^` symbol means to match at the beginning of the line
-      * Refer to this for understanding
+      * Refer to this for understanding <br>
         https://support.smartbear.com/alertsite/docs/appendixes/regular-expressions.html#:~:text=Match%20the%20beginning%20of%20the%20line
 
     2.2 The `(` symbol after the `^` symbol and its matching `)` means to
@@ -39,21 +39,23 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
         substituting.
       * Techincally, this will keep the `\t\timage: ` part (notice the white
         space after `:`)
-      * Refer to this for understanding of `()` and `\1`
-        https://www.grymoire.com/Unix/Sed.html#uh-4 or
+      * Refer to this for understanding of `()` and `\1` <br>
+        https://www.grymoire.com/Unix/Sed.html#uh-4 or <br>
         https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.7%20Back%2Dreferences%20and%20Subexpressions,-back%2Dreferences%20are
 
     2.3 The `[[:space:]]*` part matches any number of white spaces (including
         tabs and new lines)
-      * Refer to this for understanding of `[[:space:]]`
+      * Refer to this for understanding of `[[:space:]]` <br>
         https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=Space%20characters%3A%20in%20the%20%E2%80%98C%E2%80%99%20locale%2C%20this%20is%20tab%2C%20newline%2C%20vertical%20tab%2C%20form%20feed%2C%20carriage%20return%2C%20and%20space
-      * Refer to this for understading of `*`
+      * Refer to this for understading of `*` <br>
         https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=character%20matches%20itself.-,*,-Matches%20a%20sequence
 
     2.4 The `.*` symbols matches any number of characters
       * `.` means matching one occurrence of any character
       * `*` matches zero or more occurrences of the character preceeding the `*`
-        symbol
+        symbol <br>
+        Refer to this for understanding of `*` <br>
+        https://www.gnu.org/software/sed/manual/sed.html#Regexp-Addresses:~:text=character%20matches%20itself.-,*,-Matches%20a%20sequence
       * Thus `.*` means matching zero or more occurrences of any character.
 
 3.  The replacing part
