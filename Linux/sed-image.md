@@ -22,3 +22,22 @@ export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 # IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
 sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 ```
+
+## Explanation of the `sed` command
+### Refer to this documentation for full details of the `sed` command: https://www.gnu.org/software/sed/manual/sed.html
+1.  The `-r` part after the `sed` word means to use Extended Regular Expression
+    instead of basic Regular Expression. This is to avoid having to escape some
+    symbols to make it have special meaning
+    * Refer to this part of the documentation for the difference between
+      Extended Regular Expression and Basic Regular Expression
+      https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.4%20Overview%20of%20extended%20regular%20expression%20syntax,-The%20only%20difference
+
+2.  The `^` symbol means to match at the beginning of the line
+    * Refer to this for understanding
+      https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference#:~:text=By%20default%2C%20the%20match%20must%20start%20at%20the%20beginning%20of%20the%20string%3B%20in%20multiline%20mode%2C%20it%20must%20start%20at%20the%20beginning%20of%20the%20line.
+
+3.  The `(` symbol after the `^` symbol and its matching `)` means to remember
+    the part inside of it. This is used for the `\1` later. Think of it as the
+    remembered part will be "pasted" in the `\1` when substituting.
+
+
