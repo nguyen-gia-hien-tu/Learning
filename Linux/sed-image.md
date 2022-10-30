@@ -15,10 +15,6 @@ export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 # (i.e., 12732.dkr.ecr.io/hien-image:v1.0.0) to another words and output to terminal.
 # In this case, the words would be value of the $IMAGE_NAME variable
 
-# Refer to this https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
-# for bash substitution for variables
-# ${IMAGE_NAME//\//\/} change all the occurrences of "/" in the value of the
-# IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
 sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 ```
 
@@ -31,7 +27,7 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
       Extended Regular Expression and Basic Regular Expression
       https://www.gnu.org/software/sed/manual/sed.html#ERE-syntax:~:text=%5D%5BIndex%5D-,5.4%20Overview%20of%20extended%20regular%20expression%20syntax,-The%20only%20difference
 
-2. The matching part
+2.  The matching part
 
     2.1 The `^` symbol means to match at the beginning of the line * Refer to
         this for understanding
@@ -41,8 +37,7 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
         the part inside of it. This is used for the `\1` later. Think of it as the
         remembered part will be "pasted" in the `\1` when substituting. <br>
         Techincally, this will keep the `\t\timage: ` part (notice the white space after `:`)
-
-        * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
+            * Refer to this for understanding https://www.grymoire.com/Unix/Sed.html#uh-4
 
     2.3 The `[[:space:]]*` part matches any number of white spaces (including
         tabs and new lines)
@@ -52,4 +47,13 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
         character preceeding the `*` symbol. Thus `.*` means matching zero or more
         occurrences of any character.
 
+3.  The replacing part
+
+    3.1 The `\1` part will "pasted" the remembered part before that its position
+
+    3.2 ${IMAGE_NAME//\//\/} changes all the occurrences of "/" in the value of
+        the IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
+            * Refer to this
+              https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
+              for bash substitution for variables
 
