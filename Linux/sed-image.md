@@ -9,7 +9,7 @@ https://linuxhint.com/environment-variables-sed-command/
 echo "\t\timage: 22064.dkr.ecr.io/hien-image:v1.0.0" >> test-file
 
 # Set environment variable IMAGE_NAME to have value of 17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
-IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
+export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 
 
 # `sed` to change the part after the "image" word in the test-file
