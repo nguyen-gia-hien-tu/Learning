@@ -36,7 +36,8 @@ func main() {
 	// Save deck called "cards" to the file named "cards.txt"
 	fmt.Println("Save card deck to file:")
 	cards.saveToFile("cards.txt")
-	fmt.Println("Done\n")
+	fmt.Println("Done")
+	fmt.Println()
 
 	// Read card deck from the file named "cards.txt"
 	fmt.Println("Read from File:")
