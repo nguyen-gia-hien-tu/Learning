@@ -15,7 +15,7 @@ export IMAGE_NAME=17239.dkr.ecr.aws.com/test-repo/changed-ecr:v1.0.1
 # (i.e., 12732.dkr.ecr.io/hien-image:v1.0.0) to another words and output to terminal.
 # In this case, the words would be value of the $IMAGE_NAME variable
 
-sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
+sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\\/}/" test-file
 ```
 
 ## Explanation of the `sed` command
@@ -62,7 +62,7 @@ sed -r "s/^([[:space:]]*image: ).*/\1${IMAGE_NAME//\//\/}/" test-file
 
     3.1 The `\1` part will "pasted" the remembered part before that its position
 
-    3.2 ${IMAGE_NAME//\//\/} changes all the occurrences of "/" in the value of
+    3.2 ${IMAGE_NAME//\//\\/} changes all the occurrences of "/" in the value of
         the IMAGE_NAME variable to "\/" to escape the "/" for later use in `sed`
       * Refer to this for understanding of bash substitution for variables <br>
         https://tldp.org/LDP/abs/html/parameter-substitution.html#:~:text=%24%7Bvar/Pattern/Replacement%7D
