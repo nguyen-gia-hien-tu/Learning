@@ -1,18 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
-  # {{ .Values.service.type }}
-  # {{ .Values.service.port }}
 metadata:
-  name: {{ include "firstchart.fullname" . }}
+  name: {{ include "secondchart.fullname" . }}
   labels:
-    {{- include "firstchart.labels" . | nindent 4 }} 
+    {{- include "secondchart.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "firstchart.selectorLabels" . | nindent 6 }}
+      {{- include "secondchart.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -20,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "firstchart.selectorLabels" . | nindent 8 }}
+        {{- include "secondchart.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "firstchart.serviceAccountName" . }}
+      serviceAccountName: {{ include "secondchart.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

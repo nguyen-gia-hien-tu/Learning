@@ -4,6 +4,11 @@ description: A Helm chart for Kubernetes
 name: firstchart
 type: application
 version: 0.1.0
-annotations:
-  custom-anno: "hello"
-  another-custom-anno: "hello2"
+dependencies:
+  - name: mysql
+    version: "^9.0.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    tags:
+      - enabled
+    imported-values:
+      - service 
