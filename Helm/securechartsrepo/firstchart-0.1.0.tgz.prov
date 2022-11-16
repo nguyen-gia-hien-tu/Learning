@@ -1,0 +1,32 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+apiVersion: v2
+appVersion: 1.16.0
+dependencies:
+- - name: mysql
+  repository: https://charts.bitnami.com/bitnami
+  tags:
+  - enabled
+  version: ^9.0.0
+description: A Helm chart for Kubernetes
+name: firstchart
+type: application
+version: 0.1.0
+
+...
+files:
+  firstchart-0.1.0.tgz: sha256:740735ac6644898b998048af21b39110eb9f28e205cd178820369ca5b6e96981
+-----BEGIN PGP SIGNATURE-----
+
+wsDcBAEBCgAQBQJjc7u6CRBASEdY5adoqwAAk3YMABH8LPMrJ/2B1mk+bEfCA183
+ThhYlly2rj2xZY0pboLmPF6rDAeTb++7W9Zyzzi8Xyl3g9iR0k8DX6HNT0x+X1PA
+LPzPAYFPwnZFvf9Kqsi9bvhli/i6KJyuWQwGzEMTCsB3ejzjcuNmBijNmQgd+C8f
+AbcrhkCb1X0lue6xSMAQGdngJiSm9k7vB8YZuWwVAdcVx+/ASFElQodoiVIHGtNU
+KwGwRZ+MHd2YXXCRBvdHFfxb5Gyz3ipMyNW+XGsKUFysmHm0/0QCjTWmR5WGmxPm
+Q/Ig5Cx4UW4TVtbHtknlO8lX5HfIK8GjWgsXh0cS8tmOeyB2Y4s6fN/iT46YVV/F
+tRo39JIef5H//+fMPNvJUIRejS6z7BbM2IqeCdAS9uNo1n923fCqYsAjpq8jQ02v
+YR8oKjDSQPx//CQl7bhPcryHXBnsDRzDLv3KMXEnFYIiGFRlg73oWN4q+PS++3zw
+DKVlLBhwcdYnxMoyQSDLdMjX93qyWe/YSUPR8H/BVQ==
+=l+J4
+-----END PGP SIGNATURE-----
