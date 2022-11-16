@@ -1,0 +1,5 @@
+name: "myplugin"
+version: "1.0.0"
+description: "My First Custom Plugin"
+usage: "helm plugin"
+command: "echo The plugin $HELM_PLUGIN_NAME is located in $HELM_PLUGIN_DIR"

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "spring-demoapp.fullname" . }}
+  labels:
+    {{- include "spring-demoapp.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      nodePort: {{ .Values.service.NodePort }}
+      protocol: TCP
+      name: tomcat
+  selector:
+    {{- include "spring-demoapp.selectorLabels" . | nindent 4 }}
